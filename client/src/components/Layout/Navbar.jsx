@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Menu, Bell, Search } from "lucide-react";
 
-const Navbar = ({ setSidebarOpen, notifications = 0 }) => {
+const Navbar = ({ setSidebarOpen, notifications = 0, onSearch }) => {
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (onSearch && searchQuery.trim()) {
+      onSearch(searchQuery);
+    }
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
   return (
     <nav className="bg-white/70 backdrop-blur-md border-b border-gray-200 shadow-sm sticky top-0 z-30">
       <div className="px-4 sm:px-6 lg:px-8">
