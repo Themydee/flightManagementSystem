@@ -1,15 +1,16 @@
 import pg from 'pg';
 import { drizzle } from 'drizzle-orm/node-postgres';
+import dotenv from 'dotenv';
+dotenv.config();
 import * as schema from './db/schema.js';
 
 const { Pool } = pg;
 
 const pool = new Pool({
-  host: 'localhost',       // your PostgreSQL host
-  port: 5433,              // default PostgreSQL port
-  user: 'postgres',        // your DB username
-  password: 'themydee2018', // your DB password
-  database: 'flight_db',         // your DB name
+  connectionString: process.env.DATABASE_URL, // use Render DB URL
+  ssl: {
+    rejectUnauthorized: false, // required for hosted Postgres
+  },
 });
 
 export const db = drizzle(pool);
