@@ -1,7 +1,7 @@
 // src/contexts/AuthContext.jsx
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { authAPI } from "../services/api";
-import Loader from "../components/Loader"; // create this component for the spinner
+import Loader from "../components/Loader";
 
 const AuthContext = createContext(null);
 
@@ -23,7 +23,6 @@ export const AuthProvider = ({ children }) => {
 
     if (storedUser && token) {
       setUser(JSON.parse(storedUser));
-      // token is automatically added via Axios interceptor
     }
     setLoading(false);
   }, []);
@@ -64,7 +63,7 @@ export const AuthProvider = ({ children }) => {
     isAuthenticated: !!user,
   };
 
-  if (loading) return <Loader />; // Use separate Loader component
+  if (loading) return <Loader />;
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

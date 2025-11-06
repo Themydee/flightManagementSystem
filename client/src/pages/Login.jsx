@@ -20,7 +20,7 @@ const Login = () => {
     }
   }, [isAuthenticated, navigate]);
 
-  // Handle input change
+ 
   const handleChange = (e) => {
     setFormData({
       ...formData,

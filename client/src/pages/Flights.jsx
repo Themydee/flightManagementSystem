@@ -10,7 +10,7 @@ const Flights = () => {
 
   // Modal states
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalMode, setModalMode] = useState('add'); // 'add' or 'edit'
+  const [modalMode, setModalMode] = useState('add'); 
   const [selectedFlight, setSelectedFlight] = useState(null);
 
   // Form state
@@ -23,7 +23,6 @@ const Flights = () => {
     availableSeats: '',
   });
 
-  // Fetch all flights
   const fetchFlights = async () => {
     try {
       setLoading(true);

@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const API_BASE_URL = 'https://flightmanagementsystem.onrender.com/api';
 
-// Create Axios instance
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -10,7 +9,6 @@ const api = axios.create({
   },
 });
 
-// Attach token automatically if present
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -22,17 +20,13 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Auth endpoints
 export const authAPI = {
   login: (credentials) => api.post('/auth/login', credentials),
 };
 
-// Flights endpoints
 export const flightsAPI = {
-  // Get all flights
   getAll: () => api.get('/flights'),
 
-  // Create a new flight
   create: (flightData) =>
     api.post('/flights/add', {
       flightNumber: flightData.flightNumber,
@@ -43,7 +37,6 @@ export const flightsAPI = {
       availableSeats: flightData.availableSeats,
     }),
 
-  // Update a flight by id
   update: (id, flightData) =>
     api.put(`/flights/${id}`, {
       flightNumber: flightData.flightNumber,
@@ -54,7 +47,6 @@ export const flightsAPI = {
       availableSeats: flightData.availableSeats,
     }),
 
-  // Delete a flight by id
   delete: (id) => api.delete(`/flights/delete/${id}`),
 };
 
