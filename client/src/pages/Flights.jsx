@@ -7,13 +7,10 @@ const Flights = () => {
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
-
-  // Modal states
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState('add'); 
   const [selectedFlight, setSelectedFlight] = useState(null);
 
-  // Form state
   const [formData, setFormData] = useState({
     flightNumber: '',
     origin: '',

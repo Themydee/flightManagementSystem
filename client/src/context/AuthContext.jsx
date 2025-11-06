@@ -1,4 +1,4 @@
-// src/contexts/AuthContext.jsx
+
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { authAPI } from "../services/api";
 import Loader from "../components/Loader";
@@ -34,7 +34,6 @@ export const AuthProvider = ({ children }) => {
 
       if (!token) throw new Error("No token returned from server");
 
-      // Save token & user in localStorage
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(userData));
 

@@ -26,23 +26,22 @@ const Login = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-    setError(''); // Clear error when user types
+    setError('');
   };
 
-  // Handle form submission
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
-    // Basic validation
+
     if (!formData.username || !formData.password) {
       setError('Please fill in all fields');
       setLoading(false);
       return;
     }
 
-    // Attempt login
     const result = await login(formData.username, formData.password);
     
     if (result.success) {
