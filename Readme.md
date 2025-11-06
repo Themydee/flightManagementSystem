@@ -57,7 +57,7 @@ The **Flight Management System** is a simple full-stack application that allows 
 
    ```bash
     DATABASE_URL=postgresql://username:password@localhost:5432/flightdb
-    PORT=5000
+    PORT=3000
 
     ```
 
