@@ -73,6 +73,8 @@ The **Flight Management System** is a simple full-stack application that allows 
   connect to your flight_db and view your tables
    ```
 
+---
+
 
 ## 🔄 CRUD Features
 - **Create:** Add new flight records  
