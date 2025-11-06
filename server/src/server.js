@@ -17,12 +17,15 @@ app.use("/api/auth", authRoutes);
 
 app.use("/api/flights", verifyAdmin, flightRoutes);
 
-app.use((req, res) => res.status(404).json({ error: "Not Found" }));
 
 // Global error handler
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(err.status || 500).json({ error: err.message || "Server error" });
+});
+
+app.get("/", async (req, res) => {
+  res.send("Flight Management System API is running ✅");
 });
 
 // Start server
